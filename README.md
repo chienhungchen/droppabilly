@@ -11,6 +11,12 @@ Good for Draggabilly, yo. (draggabilly.desandro.com)
 ##License
 MIT License (http://opensource.org/licenses/MIT)
 
+##Demo
+Download and load index.html in your browser for a basic demo.
+
+##Browser Support
+TBD
+
 ##Parameters
 All available parameters below, put in the form of sample code. Enjoy!
 
