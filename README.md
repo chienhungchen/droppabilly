@@ -12,7 +12,7 @@ Good for Draggabilly, yo. (draggabilly.desandro.com)
 MIT License (http://opensource.org/licenses/MIT)
 
 ##Parameters
-All available parameters are in the sample code. Enjoy!
+All available parameters below, put in the form of sample code. Enjoy!
 
 	$('#drop').droppabilly({
 		
