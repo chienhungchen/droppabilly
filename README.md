@@ -9,22 +9,39 @@ Good for Draggabilly, yo. (draggabilly.desandro.com)
 - Draggabilly (1.0.1+)
 
 ##Parameters
+All available parameters are in the sampel code. Enjoy!
 
 	$('#drop').droppabilly({
-		dragsters: '#selector', //any jquery selection
+		
+		//--------------------
+		// any jquery selection
+		//--------------------
+		dragsters: '#selector',
+
+		//--------------------
+		// function is invoked when element is over the droppabilly
+		// drop is the droppabilly element
+		// drag is the current draggabilly element
+		//--------------------
 		over: function(drop, drag) {
-			//function is invoked when element is over the droppabilly
-			//drop is the droppabilly element
-			//drag is the current draggabilly element
+			//put some code here!	
 		},
+		
+		//--------------------
+		// function is invoked when element moves out of the droppabilly
+		// drop is the droppabilly element
+		// drag is the current draggabilly element
+		//--------------------
 		out: function(drop, drag) {
-			//function is invoked when element moves out of the droppabilly
-			//drop is the droppabilly element
-			//drag is the current draggabilly element
+			//put some code here!
 		},
+
+		//--------------------
+		// function is invoked when element is dropped on the droppabilly
+		// drop is the droppabilly element
+		// drag is the current draggabilly element
+		//--------------------
 		drop: function(drop, drag) {
-			//function is invoked when element is dropped on the droppabilly
-			//drop is the droppabilly element
-			//drag is the current draggabilly element
+			//put some code here!
 		}
 	});
