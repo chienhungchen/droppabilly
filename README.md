@@ -1,7 +1,7 @@
 #Droppabilly
 Barebone droppable using jQuery
 
-Good for Draggabilly, yo. (draggabilly.desandro.com)
+Good for Draggabilly, yo. (http://draggabilly.desandro.com)
 
 
 ##Dependencies
