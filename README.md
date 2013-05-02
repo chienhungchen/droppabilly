@@ -10,7 +10,7 @@ Good for Draggabilly, yo. (draggabilly.desandro.com)
 
 ##Parameters
 
-	{
+	$('#drop').droppabilly({
 		dragsters: '#selector', //any jquery selection
 		over: function(drop, drag) {
 			//function is invoked when element is over the droppabilly
@@ -27,4 +27,4 @@ Good for Draggabilly, yo. (draggabilly.desandro.com)
 			//drop is the droppabilly element
 			//drag is the current draggabilly element
 		}
-	}
+	});
