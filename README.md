@@ -8,6 +8,9 @@ Good for Draggabilly, yo. (draggabilly.desandro.com)
 - jQuery (tested with 1.9.1+)
 - Draggabilly (1.0.1+)
 
+##License
+MIT License (http://opensource.org/licenses/MIT)
+
 ##Parameters
 All available parameters are in the sampel code. Enjoy!
 
