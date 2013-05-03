@@ -33,7 +33,8 @@ All available parameters below, put in the form of sample code. Enjoy!
 		// drag is the current draggabilly element
 		//--------------------
 		over: function(drop, drag) {
-			//put some code here!	
+			//put some code here!
+			//return true to make this function happen only once
 		},
 		
 		//--------------------
@@ -43,6 +44,7 @@ All available parameters below, put in the form of sample code. Enjoy!
 		//--------------------
 		out: function(drop, drag) {
 			//put some code here!
+			//return true to make this function happen only once
 		},
 
 		//--------------------
