@@ -5,7 +5,6 @@ Good for Draggabilly, yo. (http://draggabilly.desandro.com)
 
 
 ##Dependencies
-- jQuery (tested with 1.9.1+)
 - Draggabilly (1.0.1+)
 
 ##License
@@ -20,12 +19,12 @@ TBD
 ##Parameters
 All available parameters below, put in the form of sample code. Enjoy!
 
-	$('#drop').droppabilly({
+	var dropster = new Droppabilly(document.getElementById('drop-id'),{
 		
 		//--------------------
-		// any jquery selection
+		// classname of dragsters (passes directly into document.getElementsByClassName)
 		//--------------------
-		dragsters: '#selector',
+		dragsters: 'selector',
 
 		//--------------------
 		// function is invoked when element is over the droppabilly
