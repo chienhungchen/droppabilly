@@ -1,5 +1,15 @@
+/*
+
+NOTE NOTE NOTE!
+
+THIS IS OLDER CODE
+
+Please see new version which is just dropabilly.js, in the same repo
+
+*/
+
 // jquery.droppabilly.js
-// Version: 0.0.2
+// Version: 0.0.3
 // Author: Chien-Hung Chen (github.com/chienhungchen)
 // jQuery plugin for creating droppables to use with draggabilly.js
 // This is suppose to be a barebones alternative (when coupled with draggabilly.js) to jQuery UI + touchpunch

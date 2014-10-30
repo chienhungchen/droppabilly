@@ -3,55 +3,90 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>jQuery.Droppabilly</title>
+        <title>Droppabilly</title>
         <style>
             body {
                 font-family: Helvetica;
             }
-            #drag {
-                width: 50px;
-                height: 50px;
-                background-color: red;
-                position: absolute;
-                top: 100px;
-                left: 100px;
-                z-index: 2;
+            .container {
+                padding: 20px;
+                border: 1px solid #999;
+                margin: 10px 0;
             }
 
-            #drop {
+            .drag, .drag2, .drag3 {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 100px;
+            }
+
+            #drag {
+                background-color: red;
+            }
+
+            #drop, #drop2, #drop3 {
                 width: 100px;
                 height: 100px;
                 background-color: gray;
-                position: absolute;
-                top: 100px;
-                left: 200px;
+            }
+
+            #drag2 {
+                background-color: blue;
+            }
+
+            .drag3 {
+                display: inline-block;
+                margin: 0 20px 100px 0;
+                background-color: green;
             }
         </style>
     </head>
     <body>
-        <div id="info">
-            <div id="drag-info"><b>Draggabilly Says:</b> <span></span></div>
-            <div id="drop-info"><b>Droppabilly Says:</b> <span></span></div>
+        <div class="container">
+            <div id="info">
+                <div><b>Draggabilly Says:</b> <span id="drag-info"></span></div>
+                <div><b>Droppabilly Says:</b> <span id="drop-info"></span></div>
+            </div>
+            <div id="drag" class="drag"></div>
+            <div id="drop"></div>
         </div>
-        <div id="drag"></div>
-        <div id="drop"></div>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="http://draggabilly.desandro.com/draggabilly.pkgd.min.js"></script>
-        <script src="jquery.droppabilly.js"></script>
+
+        <div class="container">
+            <div id="info2">
+                <div><b>Draggabilly Says:</b> <span id="drag-info2"></span></div>
+                <div><b>Droppabilly Says:</b> <span id="drop-info2"></span></div>
+            </div>
+            <div id="drag2" class="drag2"></div>
+            <div id="drop2"></div>
+        </div>
+
+        <div class="container">
+            <div id="info3">
+                <div><b>Draggabilly Says:</b> <span id="drag-info3"></span></div>
+                <div><b>Droppabilly Says:</b> <span id="drop-info3"></span></div>
+            </div>
+            <div id="drag3-1" class="drag3"></div>
+            <div id="drag3-2" class="drag3"></div>
+            <div id="drop3"></div>
+        </div>
+
+        <script src="http://draggabilly.desandro.com/draggabilly.pkgd.js"></script>
+        <script src="droppabilly.js"></script>
         <script>
-            $(function(){
-                var dragster = new Draggabilly($("#drag")[0]);
+            (function(){
+                //First Container
+                var dragster = new Draggabilly(document.getElementById('drag'));
 
                 function onDragMove( instance, event, pointer ) {
-                    $('#drag-info > span').text('onDragMove');
+                    document.getElementById('drag-info').innerHTML = 'onDragMove';
                 }
 
                 function onDragStart( instance, event, pointer ) {
-                    $('#drag-info > span').text('onDragStart');
+                    document.getElementById('drag-info').innerHTML = 'onDragStart';
                 }
 
                 function onDragEnd( instance, event, pointer ) {
-                    $('#drag-info > span').text('onDragEnd');
+                    document.getElementById('drag-info').innerHTML = 'onDragEnd';
                 }
 
                 // bind event listener
@@ -59,19 +94,94 @@
                 dragster.on('dragStart', onDragStart);
                 dragster.on('dragEnd', onDragEnd);
 
-                $('#drop').droppabilly({
-                    dragsters: '#drag',
+                var dropster = new Droppabilly(document.getElementById('drop'), {
+                    dragstersClassName: 'drag',
                     over: function(drop, drag) {
-                        $('#drop-info > span').text('over event triggered');
+                        document.getElementById('drop-info').innerHTML = 'over event triggered';
                     },
                     out: function(drop, drag) {
-                        $('#drop-info > span').text('out event triggered');
+                        document.getElementById('drop-info').innerHTML = 'out event triggered';
                     },
                     drop: function(drop, drag) {
-                        $('#drop-info > span').text('drop event triggered');
+                        document.getElementById('drop-info').innerHTML = 'drop event triggered';
                     }
                 });
-            });
+                //First Container End
+
+
+                //Second Container
+                var dragster2 = new Draggabilly(document.getElementById('drag2'));
+
+                function onDragMove2( instance, event, pointer ) {
+                    document.getElementById('drag-info2').innerHTML = 'onDragMove';
+                }
+
+                function onDragStart2( instance, event, pointer ) {
+                    document.getElementById('drag-info2').innerHTML = 'onDragStart';
+                }
+
+                function onDragEnd2( instance, event, pointer ) {
+                    document.getElementById('drag-info2').innerHTML = 'onDragEnd';
+                }
+
+                // bind event listener
+                dragster2.on('dragMove', onDragMove2);
+                dragster2.on('dragStart', onDragStart2);
+                dragster2.on('dragEnd', onDragEnd2);
+
+                var dropster2 = new Droppabilly(document.getElementById('drop2'), {
+                    dragstersClassName: 'drag2',
+                    over: function(drop, drag) {
+                        document.getElementById('drop-info2').innerHTML = 'over event triggered';
+                    },
+                    out: function(drop, drag) {
+                        document.getElementById('drop-info2').innerHTML = 'out event triggered';
+                    },
+                    drop: function(drop, drag) {
+                        document.getElementById('drop-info2').innerHTML = 'drop event triggered';
+                    }
+                });
+                //Second Container End
+
+                //Third Container
+                var dragster3_1 = new Draggabilly(document.getElementById('drag3-1'));
+                var dragster3_2 = new Draggabilly(document.getElementById('drag3-2'));
+
+                function onDragMove3( instance, event, pointer ) {
+                    document.getElementById('drag-info3').innerHTML = 'onDragMove';
+                }
+
+                function onDragStart3( instance, event, pointer ) {
+                    document.getElementById('drag-info3').innerHTML = 'onDragStart';
+                }
+
+                function onDragEnd3( instance, event, pointer ) {
+                    document.getElementById('drag-info3').innerHTML = 'onDragEnd';
+                }
+
+                // bind event listener
+                dragster3_1.on('dragMove', onDragMove3);
+                dragster3_1.on('dragStart', onDragStart3);
+                dragster3_1.on('dragEnd', onDragEnd3);
+
+                dragster3_2.on('dragMove', onDragMove3);
+                dragster3_2.on('dragStart', onDragStart3);
+                dragster3_2.on('dragEnd', onDragEnd3);
+
+                var dropster3 = new Droppabilly(document.getElementById('drop3'), {
+                    dragstersClassName: 'drag3',
+                    over: function(drop, drag) {
+                        document.getElementById('drop-info3').innerHTML = '#' + drag.id + ' over event triggered';
+                    },
+                    out: function(drop, drag) {
+                        document.getElementById('drop-info3').innerHTML = '#' + drag.id + ' out event triggered';
+                    },
+                    drop: function(drop, drag) {
+                        document.getElementById('drop-info3').innerHTML = '#' + drag.id + ' drop event triggered';
+                    }
+                });
+                //Third Container End
+            })();
         </script>
     </body>
 </html>

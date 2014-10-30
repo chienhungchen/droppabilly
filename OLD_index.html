@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery.Droppabilly</title>
+        <style>
+            body {
+                font-family: Helvetica;
+            }
+            #drag {
+                width: 50px;
+                height: 50px;
+                background-color: red;
+                position: absolute;
+                top: 100px;
+                left: 100px;
+                z-index: 2;
+            }
+
+            #drop {
+                width: 100px;
+                height: 100px;
+                background-color: gray;
+                position: absolute;
+                top: 100px;
+                left: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="info">
+            <div id="drag-info"><b>Draggabilly Says:</b> <span></span></div>
+            <div id="drop-info"><b>Droppabilly Says:</b> <span></span></div>
+        </div>
+        <div id="drag"></div>
+        <div id="drop"></div>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="http://draggabilly.desandro.com/draggabilly.pkgd.js"></script>
+        <script src="jquery.droppabilly.js"></script>
+        <script>
+            $(function(){
+                var dragster = new Draggabilly($("#drag")[0]);
+
+                function onDragMove( instance, event, pointer ) {
+                    $('#drag-info > span').text('onDragMove');
+                }
+
+                function onDragStart( instance, event, pointer ) {
+                    $('#drag-info > span').text('onDragStart');
+                }
+
+                function onDragEnd( instance, event, pointer ) {
+                    $('#drag-info > span').text('onDragEnd');
+                }
+
+                // bind event listener
+                dragster.on('dragMove', onDragMove);
+                dragster.on('dragStart', onDragStart);
+                dragster.on('dragEnd', onDragEnd);
+
+                $('#drop').droppabilly({
+                    dragsters: '#drag',
+                    over: function(drop, drag) {
+                        $('#drop-info > span').text('over event triggered');
+                    },
+                    out: function(drop, drag) {
+                        $('#drop-info > span').text('out event triggered');
+                    },
+                    drop: function(drop, drag) {
+                        $('#drop-info > span').text('drop event triggered');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
