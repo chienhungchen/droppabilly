@@ -14,7 +14,7 @@
                 margin: 10px 0;
             }
 
-            .drag, .drag2, .drag3 {
+            .drag, .drag2, .drag3, .drag4 {
                 width: 50px;
                 height: 50px;
                 margin-bottom: 100px;
@@ -24,10 +24,11 @@
                 background-color: red;
             }
 
-            #drop, #drop2, #drop3 {
+            #drop, #drop2, #drop3, .drop4 {
                 width: 100px;
                 height: 100px;
                 background-color: gray;
+                margin-bottom: 10px;
             }
 
             #drag2 {
@@ -38,6 +39,10 @@
                 display: inline-block;
                 margin: 0 20px 100px 0;
                 background-color: green;
+            }
+
+            #drag4 {
+                background-color: aqua;
             }
         </style>
     </head>
@@ -68,6 +73,16 @@
             <div id="drag3-1" class="drag3"></div>
             <div id="drag3-2" class="drag3"></div>
             <div id="drop3"></div>
+        </div>
+
+        <div class="container">
+            <div id="info4">
+                <div><b>Draggabilly Says:</b> <span id="drag-info4"></span></div>
+                <div><b>Droppabilly Says:</b> <span id="drop-info4"></span></div>
+            </div>
+            <div id="drag4" class="drag4"></div>
+            <div id="drop4-1" class="drop4"></div>
+            <div id="drop4-2" class="drop4"></div>
         </div>
 
         <script src="http://draggabilly.desandro.com/draggabilly.pkgd.js"></script>
@@ -181,6 +196,73 @@
                     }
                 });
                 //Third Container End
+
+
+
+                //Fourth Container
+                var dragster4 = new Draggabilly(document.getElementById('drag4'));
+
+                function onDragMove4( instance, event, pointer ) {
+                    document.getElementById('drag-info4').innerHTML = 'onDragMove';
+                }
+
+                function onDragStart4( instance, event, pointer ) {
+                    document.getElementById('drag-info4').innerHTML = 'onDragStart';
+                }
+
+                function onDragEnd4( instance, event, pointer ) {
+                    document.getElementById('drag-info4').innerHTML = 'onDragEnd';
+                }
+
+                // bind event listener
+                dragster4.on('dragMove', onDragMove4);
+                dragster4.on('dragStart', onDragStart4);
+                dragster4.on('dragEnd', onDragEnd4);
+
+                // var drops4 = document.querySelectorAll('.drop4'),
+                //     dropsters4 = [];
+
+                // [].forEach.call(drops4, function(drop){
+                //     dropsters4.push(new Droppabilly(drop, {
+                //         dragstersClassName: 'drag4',
+                //         over: function(drop, drag) {
+                //             document.getElementById('drop-info4').innerHTML = 'over event triggered';
+                //         },
+                //         out: function(drop, drag) {
+                //             document.getElementById('drop-info4').innerHTML = 'out event triggered';
+                //         },
+                //         drop: function(drop, drag) {
+                //             document.getElementById('drop-info4').innerHTML = 'drop event triggered';
+                //         }
+                //     }));
+                // });
+
+                var dropster4_1 = new Droppabilly(document.getElementById('drop4_1'), {
+                    dragstersClassName: 'drag4',
+                    over: function(drop, drag) {
+                        document.getElementById('drop-info4').innerHTML = 'over event triggered';
+                    },
+                    out: function(drop, drag) {
+                        document.getElementById('drop-info4').innerHTML = 'out event triggered';
+                    },
+                    drop: function(drop, drag) {
+                        document.getElementById('drop-info4').innerHTML = 'drop event triggered';
+                    }
+                });
+                
+                var dropster4_2 = new Droppabilly(document.getElementById('drop4_2'), {
+                    dragstersClassName: 'drag4',
+                    over: function(drop, drag) {
+                        document.getElementById('drop-info4').innerHTML = 'over event triggered';
+                    },
+                    out: function(drop, drag) {
+                        document.getElementById('drop-info4').innerHTML = 'out event triggered';
+                    },
+                    drop: function(drop, drag) {
+                        document.getElementById('drop-info4').innerHTML = 'drop event triggered';
+                    }
+                });
+                //Fourth Container End
             })();
         </script>
     </body>
