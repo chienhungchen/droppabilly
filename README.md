@@ -22,7 +22,7 @@ var dropster = new Droppabilly(document.getElementById('drop-id'),{
 	//--------------------
 	// classname of dragsters (passes directly into document.getElementsByClassName)
 	//--------------------
-	dragsters: 'selector',
+	dragstersClassName: 'selector',
 
 	//--------------------
 	// function is invoked when element is over the droppabilly
